@@ -1,0 +1,254 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Hamza Hashmi | Home</title>
+        <link rel="stylesheet" href="style.css">
+    </head>
+
+    <body>
+        <header class="main-header">
+            <nav class="nav main-nav">
+                <ul>
+                    <li><a href="index.html">HOME</a></li>
+                    <li><a href="blog.html">BLOG</a></li>
+                    <li><a href="about.html">ABOUT</a></li>
+                </ul>
+            </nav>
+        <h1 class="web-name web-name-large">Hamza Hashmi</h1>
+        
+        </header>
+
+        <section class="content-section container">
+            <h2 class="section-header">3x2 Memory Circuit</h2>
+            <img class="patch-image" src="./project 1 img/irelia.jpg" alt="Artwork by Riot Bo Chen">
+            <p class="image-credit">Image Credit: Riot Bo Chen | artstation.com/chenbo</p>
+            
+            <p>Greetings,</p>
+            <p>
+                My name is Hamza Hashmi, and I will be presenting an overview of one of 
+                my side projects—the 3x2 memory circuit. The accompanying images consist 
+                of a schematic representation and a visual depiction of the circuit on 
+                the breadboard.
+            </p>
+            <center>
+                <img src="./project 1 img/schematic.png" width="400" height="250">
+                <img src="./project 1 img/bredboard.jpg" width="400" height="250">
+            </center>
+            <br>
+            <p>
+                This documentation delves into the individual segments of the circuit and 
+                examines the schematic, as depicted in the photo. The 3x2 memory circuit 
+                functions as a group of registers, with each register serving as a distinct 
+                memory location capable of storing a multi-bit binary number. Given its 
+                configuration as a 3x2 circuit, it accommodates the storage of 2 bits of 
+                data across 3 distinct memory locations.
+            </p>
+            <h4>Background</h4>
+            <p>
+                The 3x2 Memory Circuit is considered a logic circuit which is basically a circuit 
+                that can perform logical operations. Such logical operations that are used in the 
+                Memory Circuit are the AND, OR and NOT operation. 
+            </p>
+            <p>
+                When 2 signals are passed through a system and an AND operation is applied, the output 
+                will be 1 (On) only when both inputs are 1, otherwise the output is 0 (off). 
+                <br>
+                When 2 signals are passed through a system and an OR operation is applied, the output 
+                will be 1 (On) when either of the inputs are 1, otherwise the output is 0 (off). 
+                <br>
+                When 1 signal is passed through a system and an NOT operation is applied, the output 
+                will be opposite of what is being inputted.
+            </p>
+            <p>
+                These elements are categorized as combinational circuits, wherein the output is 
+                contingent upon the input variables. Additionally, within this circuit, there exists 
+                a component whose output depends not only on the input variables but also on the 
+                previous state of the circuit. These elements fall under the category of sequential 
+                circuits, with the specific component employed in this circuit being the D-FlipFlop. 
+                It features an input labeled D, where a value of 0, coupled with a clock pulse through 
+                the flip flop, yields an output of 0. Conversely, when the D value is 1 and a clock 
+                pulse is applied, the output becomes 1. In the absence of a clock pulse, the output 
+                remains unchanged, thus preserving its current state in memory.
+            </p>
+            <h4>Functionality Of Circuit</h4>
+            <p>
+                The 3x2 Memory Circuit is composed of 5 main parts. These parts being the Memory 
+                Location Select, Read/Write Circuit, Memory Component, Memory Out and a 2nd 
+                Read/Write Circuit, all of which are explained in more detail further below. 
+            </p>
+            <p>
+                By the address bus, there are 2 inputs, and in binary that gives us 4 possible 
+                combinations meaning we can have up to 4 locations in memory but I will be only 
+                using 3. When both the inputs are 1(11), memory location 11 will be activated. 
+                When one input is 1 and the other 0(10), memory location 10 will be activated. 
+                And when one input is 0 and the other 1(01), memory location 01 is activated. 
+            </p>
+            <p>
+                If the input is 01, the 01 selector will output a high to an AND gate which 
+                is part of a Read/Write circuit. This AND gate is connected to a switch, 
+                and when the switch is open, a signal of 0 is sent to an OR gate which 
+                reverses the output signal to a 1, sending it to AND in the Read/Write 
+                circuit which then sends the signal to 2 D-FlipFlops which ultimately 
+                means the circuit is choose memory location 01.
+            </p>
+            <p>
+                When we want to store data, we give data bit 0 and data bit 1 values, and 
+                in this example we will be giving them both values of 1. This is then sent 
+                to the D-FlipFlops input called D, which is then clocked and the same value 
+                is moved to the output of the D-FlipFlops leaving us with 11 sitting at the output.
+            </p>
+            <p>
+                No use in storing if we can't retrieve it later, so we have to read what's in memory. 
+                Since memory location 10 has been chosen, the 1st and 4th AND gate from the top in 
+                the Memory Out circuit are receiving an input. And since we are receiving a value of 
+                11 from the D-FlipFlops, the 1st and 4th AND gate from the top output a high. 
+            </p>
+            <p>
+                Now to read the memory location, we close the switch (which is connected to a +ve) 
+                giving us a high which inputs into the 1st and 4th AND gate from the top in the Read/Write circuit.
+            </p>
+            <p>
+                The 2 sets of 2 OR gates will read the output, which are both high and thus outputting a high to the 
+                LED, turning both the LEDs on, signifying that the data stored in memory location 01 were 2 1’s. 
+            </p>
+            <h4>Components in Detail</h4>
+            <ol>
+                <li>
+                    <h4>Address Bus/Memory Location Select</h4>
+                    <p>
+                    The address bus determines the storage location in one of the three 
+                    memory locations, represented by AND gates. The address leads A1 and 
+                    A0 dictate the chosen location, with specific conditions for each. In 
+                    the illustrated breadboard photo, we observe the storage of 2 bits of 
+                    data in memory location 10 (location 2).
+                    </p>
+                    <img src="./project 1 img/schem1.png" width="400" height="250">
+                    <img src="./project 1 img/board1.png" width="400" height="250">
+                </li>
+                <li>
+                    <h4>Switch</h4>
+                    <p>
+                        Positioned to the right of the address bus, a switch 
+                        (represented by a loose black wire) connected to 
+                        a NOT gate influences the read/write circuit. The 
+                        read/write circuit is triggered by the state of 
+                        the switch, and a clock pulse occurs when the switch 
+                        is open.
+                    </p>
+                    <img src="./project 1 img/schem2.png" width="400" height="250">
+                    <img src="./project 1 img/board2.png" width="400" height="250">
+                </li>
+                <li>
+                    <h4>Read/Write Circuit</h4>
+                    <p>
+                        Right above the address bus is the Read/Write Circuit. 
+                        The AND gates are connected to the clock of the D-FlipFlops.
+                    </p>
+                    <img src="./project 1 img/schem3.png" width="400" height="250">
+                    <img src="./project 1 img/board3.png" width="400" height="250">
+                </li>
+                <li>
+                    <h4>Memory Component</h4>
+                    <p>
+                        Positioned above the Read/Write section, the memory employs 
+                        D-FlipFlops. Comprising six D-FlipFlops, this section 
+                        functions based on clock pulses and data input, ensuring 
+                        data retention or updating. If the Data input lead is 1, 
+                        pulse the cloak and output is 1. If the Data input lead 
+                        is 0, and cloak is not pulsed, output would still be 1 
+                        which is considered to be retained in memory.
+                    </p>
+                    <img src="./project 1 img/schem4.png" width="400" height="250">
+                    <img src="./project 1 img/board4.png" width="400" height="250">
+                </li>
+                <li>
+                    <h4>Memory Out</h4>
+                    <p>
+                        To the right of the memory, we find the memory out, indicating the current state of the memory.
+                    </p>
+                    <center>
+                    <img src="./project 1 img/schem6.png" width="200" height="250">
+                    <img src="./project 1 img/board5.png" width="200" height="250">
+                    </center>
+                </li>
+                <li>
+                    <h4>Second Read/Write Circuit</h4>
+                    <p>
+                        Adjacent to the memory out, the second read/write circuit facilitates the reading of stored data.
+                    </p>
+                    <center>
+                    <img src="./project 1 img/schem5.png" width="200" height="250">
+                    <img src="./project 1 img/board6.png" width="200" height="250">
+                    </center>
+                </li>
+                <li>
+                    <h4>LED Display</h4>
+                    <p>
+                        To the right of the second read/write circuit, LEDs are 
+                        connected to an OR IC. These LEDs, red and green, 
+                        illuminate based on the stored data in Bit 0 and Bit 1, 
+                        respectively.
+                    </p>
+                    <center>
+                    <img src="./project 1 img/schem7.png" width="250" height="250">
+                    <img src="./project 1 img/board7.png" width="250" height="250">
+                    </center>
+                </li>
+                <li>
+                    <h4>Power Indicator</h4>
+                    <p>
+                        Additionally, an auxiliary component, the power indicator circuit,
+                        has been incorporated to monitor the power supply status from the battery.
+                        (Top right corner of breadboard)
+                    </p>
+                    <center><img src="./project 1 img/board8.png" width="100" height="100"></center>
+                </li>
+            </ol>
+            <br>
+            <center>
+                <p>Live explanation and demonstration of the circuit:</p>
+                <iframe width="360" height="260" src="http://www.youtube.com/embed/qZTqvMSgNt8?autoplay=2"></iframe>
+                <iframe width="360" height="260" src="http://www.youtube.com/embed/XWjaUbiDHKg?autoplay=2"></iframe>
+            </center>
+            <p>
+                The aim of this project is to highlight the remarkable capacity of modern storage devices, 
+                such as a 128 GB USB, which can hold 128,000,000,000 bits of data within a compact space. 
+                In contrast, this project achieves data storage using only 2 bits across 2 breadboards. 
+                Reflecting on this comparison showcases the incredible capabilities of modern technology.
+            </p>
+            <p>      
+                In conclusion, the amalgamation of 
+                theoretical design, as illustrated in the schematic, and its practical 
+                manifestation on the breadboard showcases a meticulous approach towards 
+                creating a functional and efficient memory system. As I continually refine and 
+                expand my skills, I eagerly anticipate further challenges and 
+                opportunities in the ever-evolving field of electronics and circuitry.
+            </p>
+            <p>
+                Thank You
+            </p>
+            <br>
+        </section>
+
+        <footer class="main-footer">
+            <div class="container main-footer-container">
+                <h3 class="web-name">H.H.</h3>
+                <ul class="nav footer-nav">
+                    <li>
+                        <a href="https://github.com/1Hamza-Hashmi1" target="_blank">
+                            <img src="github-mark-white.png">
+                        </a>
+                    </li>
+                    <li>
+                        <a href="https://www.linkedin.com/in/1hamza-hashmi1/" target="_blank">
+                            <img src="LI-In-Bug.png">
+                        </a>
+                    </li>
+                </ul>
+            </div>
+            <div class="footer-bottom">
+                <p>Copyright &copy;Hamza Hashmi. All Rights Reserved</p>
+            </div>
+        </footer>
+    </body>
+</html>

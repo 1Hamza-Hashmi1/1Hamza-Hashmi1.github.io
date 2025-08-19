@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Hamza Hashmi | Home</title>
+        <link rel="stylesheet" href="style.css">
+    </head>
+
+    <body>
+        <header class="main-header">
+            <nav class="nav main-nav">
+                <ul>
+                    <li><a href="index.html">HOME</a></li>
+                    <li><a href="blog.html">BLOG</a></li>
+                    <li><a href="about.html">ABOUT</a></li>
+                </ul>
+            </nav>
+        <h1 class="web-name web-name-large">Hamza Hashmi</h1>
+        
+        </header>
+
+        <section class="content-section container">
+            <h2 class="section-header">Design of General-Purpose Processor</h2>
+            <img class="patch-image" src="./project 3 img/zed.jpg" alt="Artwork by 板板-Lee">
+            <p class="image-credit">Image Credit: 板板-Lee | artstation.com/banban-lee</p>
+
+            <p>Greetings,</p>
+            <p>
+                I am Hamza Hashmi, and I will be presenting an overview of another one 
+                of my side projects — the General Purpose Processor. The aim of this side 
+                project was to design and build all functions of an arithmetic logic unit 
+                on an altera board using vhdl. The alu is composed of 4 distinct components,
+                the control unit which fetches instructions and signals, the bus which 
+                controls access to data values, the register which acts as temporary storage,
+                and the arithmetic logic unit itself, which performs arithmetic and logical 
+                operations on desired inputs.  
+            </p>
+            <center><img src="./project 3 img/gpuBlock.png" width="500" height="350"></center>
+            <h4>Components in Detail</h4>
+            <ol>
+                <li>
+                    <h4>Inputs</h4>
+                    <p>
+                        The alu take 2 8-bit inputs named A and B. The values they hold
+                        are as such, A = 35 & B = 70 in hexadecimal.
+                    </p>
+                </li>
+                <li>
+                    <h4>Storage Unit (Register/Latch)</h4>
+                    <p>
+                        The storage units (Registers/Latch) are utilized 
+                        to temporary store the input which then passes to certain components 
+                        in the system. The code of the regisotrs Functionality is coded to 
+                        recreate a D Flip-flop where it captures the current input at the 
+                        rising edge of the clock and reset to 0 when the reset pin is raised.
+                    </p>
+                </li>
+                <li>
+                    <h4>Control Unit</h4>
+                    <p>
+                        The control unit selects which operation is to be implemented within 
+                        the ALU. It produces an output OP, which is passed to ALU as the 
+                        operations selector. The control is made up of 2 sub components, 
+                        a final state machine and a 4-to-16 decoder.
+                    </p>
+                </li>
+                <li>
+                    <h4>Final State Machine</h4>
+                    <p>
+                        The final state machine or also called the fsm decides pattern of the control sequence.
+                        A mealy type circuit was used here, which is where the output depends on the present 
+                        states and current inputs.
+                    </p>
+                    <center><img src="./project 3 img/fsm.png" width="200" height="450"></center>
+                    <p>
+                        The FSM comprises of nine states, each aligning with a digit of my student number.
+                        the FSM cycles through these states, furnishing the 4-bit input necessary for the 
+                        4x16 decoder. The output, which is my student number will then be displayed on a 
+                        seven segment display
+                    </p>
+                </li>
+                <li>
+                    <h4>4-to-16 Decoder</h4>
+                    <p>
+                        The decoder is to receive a signal from the fsm on what the current state is, which 
+                        then decodes it to an operation code. The code is then passed to the ALU which will 
+                        then  perform the necessary operation based on the code.
+                    </p>
+                </li>
+                <li>
+                    <h4>ALU Core</h4>
+                    <p>
+                        The heart of this General Purpose Processor is the alu. This is where all the  arithmetic 
+                        and logical operations are to be implemented. The alu takes 2 inputs called A and B, a 
+                        16 bit input front the control unit, the code input from the microcontroller which decides 
+                        what operation is to be performed on the inputs A and B. Only 9 distinct opertaions are 
+                        implemeted which are addition, subtraction, inverse, NAND, NOR, AND, OR, XOR and XNOR. The 
+                        output of the ALU is to be displayed on the 7 segment display.
+                    </p>
+                </li>
+            </ol>
+            <br>
+            <p>Thank You</p>
+            <br>
+        </section>
+
+        <footer class="main-footer">
+            <div class="container main-footer-container">
+                <h3 class="web-name">H.H.</h3>
+                <ul class="nav footer-nav">
+                    <li>
+                        <a href="https://github.com/1Hamza-Hashmi1" target="_blank">
+                            <img src="github-mark-white.png">
+                        </a>
+                    </li>
+                    <li>
+                        <a href="https://www.linkedin.com/in/1hamza-hashmi1/" target="_blank">
+                            <img src="LI-In-Bug.png">
+                        </a>
+                    </li>
+                </ul>
+            </div>
+            <div class="footer-bottom">
+                <p>Copyright &copy;Hamza Hashmi. All Rights Reserved</p>
+            </div>
+        </footer>
+    </body>
+</html>

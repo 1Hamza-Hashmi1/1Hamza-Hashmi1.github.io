@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Hamza Hashmi | Home</title>
+        <link rel="stylesheet" href="style.css">
+    </head>
+
+    <body>
+        <header class="main-header">
+            <nav class="nav main-nav">
+                <ul>
+                    <li><a href="index.html">HOME</a></li>
+                    <li><a href="blog.html">BLOG</a></li>
+                    <li><a href="about.html">ABOUT</a></li>
+                </ul>
+            </nav>
+        <h1 class="web-name web-name-large">Hamza Hashmi</h1>
+        
+        </header>
+
+        <section class="content-section container">
+            <h2 class="section-header">Line Following Robot</h2>
+            <img class="patch-image" src="./project 2 img/akali.jpg" alt="Artwork by Franchlitz">
+            <p class="image-credit">Image Credit: AGuo | artstation.com/a_guo</p>
+
+            <p>Greetings,</p>
+            <p>
+                I am Hamza Hashmi, and I am excited to present an overview of another one 
+                of my side projects—the line-following robot. The primary goal of this 
+                undertaking was to design a robot capable of following lines.
+                Components such as the PIC24F32KA302 microcontroller, a customized 
+                breadboard circuit, PICkit3 microcontroller, the MPLab X programming 
+                software, and the integration of highly sensitive color sensors were used
+                to accomplish the goal of following a path from start to finish and back again. 
+            </p>
+            <center>
+                <iframe width="460" height="260" src="http://www.youtube.com/embed/6PEmiJkvyTk?autoplay=2"></iframe>
+            </center>
+            <br>
+            <p>Key Components:</p>
+            <ol>
+                <li>
+                    <h4>PIC24F32KA302 Microcontroller Connection Diagram</h4>
+                    <p>
+                        RA0 to RA4 are connect to ground via 2.2k Resistor. This is called pulling down the signal to ground
+                        to make sure there is no stray noise going into the circuit. RB6 to RB13 are connect to LEDs (using 8
+                        LEDs).  
+                    </p>
+                    <center>
+                        <img src="./project 2 img/ConnectionDiagram.png" width="600" height="450">
+                    </center>
+                </li>
+                <li>
+                    <h4>Breadboard Circuit</h4>
+                    <center>
+                        <img src="./project 2 img/circuit.jpg" width="500" height="350">
+                    </center>
+                </li>
+                <li>
+                    <h4>PICkit3 Microcontroller Programmer Connection Diagram</h4>
+                    <p>
+                        Pin 1 is connect to MCLR on the PIC24F32KA302. 
+                        Pin 2 is connected to VDD_2 on the PIC24F32KA302.
+                        Pin 3 is conneted to VSS_2 on the PIC24F32KA302.
+                        Pin 4 is connected to RB0 on the PIC24F32KA302.
+                        Pin 5 is connected to RB1 on the PIC24F32KA302.
+                        Pin 6 is not connected to anyhting.
+                    </p>
+                    <center>
+                        <img src="./project 2 img/Pickit3.png" width="500" height="350">
+                    </center>
+                </li>
+                <li>
+                    <h4>Robot's Chassis</h4>
+                    <center>
+                        <img src="./project 2 img/chassisAngle.jpg" width="400" height="250">
+                        <img src="./project 2 img/chassisFront.jpg" width="400" height="250">
+                        <center>
+                            <img src="./project 2 img/chassisSide.jpg" width="400" height="250">
+                        </center>
+                    </center>
+                </li>
+                <li>
+                    <h4>MPLab X Code</h4>
+                    <p>
+                        TRISA - assign a port to be I/P=1 or O/P=0. TRISA=0xffff writes to an entire registor which 
+                        is 16 bits. Color sensors have values of 0 or 1. If they read value 0, they are reading 
+                        color black, if the sensor is reading value 1, the sensors are reading color white. 
+                        Input 0 is left color sensor, and Input 1 is right color sensor. 
+                    </p>
+                    <a href="https://github.com/1Hamza-Hashmi1/Line-Robot/blob/main/MainTemplate.c" target="_blank">
+                        <button type="button" class="btn projects-item projects-btn btn-primary">See Code</button>
+                    </a>
+                </li>
+                <li>
+                    <h4>4x4 Playing Field Dimensions</h4>
+                    <center>
+                        <img src="./project 2 img/field.png" width="300" height="400">
+                    </center>
+                </li>
+            </ol>
+            <br>
+            <p>
+                The development of the line-following robot epitomizes my commitment to advancing robotics through 
+                engineering and innovative technology integration. The utilization of  components such as the 
+                PIC24F32KA302 microcontroller, intricate circuit, the PICkit3 microcontroller, MPLab X programming 
+                software, and precision-calibrated color sensors, reflects a dedication to excellence in project 
+                execution. This project not only demonstrates my technical proficiency but also underscores my 
+                passion for pushing the boundaries of robotics and automation. As I continue to explore new 
+                horizons in this field, I look forward to contributing to the ever-evolving landscape of robotics 
+                technology.
+            </p>
+            <p>Thank You</p>
+            <br>
+        </section>
+
+        <footer class="main-footer">
+            <div class="container main-footer-container">
+                <h3 class="web-name">H.H.</h3>
+                <ul class="nav footer-nav">
+                    <li>
+                        <a href="https://github.com/1Hamza-Hashmi1" target="_blank">
+                            <img src="github-mark-white.png">
+                        </a>
+                    </li>
+                    <li>
+                        <a href="https://www.linkedin.com/in/1hamza-hashmi1/" target="_blank">
+                            <img src="LI-In-Bug.png">
+                        </a>
+                    </li>
+                </ul>
+            </div>
+            <div class="footer-bottom">
+                <p>Copyright &copy;Hamza Hashmi. All Rights Reserved</p>
+            </div>
+        </footer>
+    </body>
+</html>

@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Hamza Hashmi | Home</title>
+        <link rel="stylesheet" href="style.css">
+    </head>
+
+    <body>
+        <header class="main-header">
+            <nav class="nav main-nav">
+                <ul>
+                    <li><a href="index.html">HOME</a></li>
+                    <li><a href="blog.html">BLOG</a></li>
+                    <li><a href="about.html">ABOUT</a></li>
+                </ul>
+            </nav>
+        <h1 class="web-name web-name-large">Hamza Hashmi</h1>
+        
+        </header>
+
+        <section class="content-section container">
+            <h2 class="section-header">Integration and Simulation of CPU</h2>
+            <img class="patch-image" src="./project 7 img/yas.jpg" alt="Artwork by Jennifer Wuestling">
+            <p class="image-credit">Image Credit: Jennifer Wuestling | artstation.com/izaskun</p>
+
+            <p>Greetings,</p>
+            <p>
+                Building a small Processor
+                Useing Altera Nois II Processor
+                -is a RISC Processor
+                -has 32 bit registor
+                -1 word is 4 bytes
+                -R0 to R31 are registors
+                -designing a semi-RISC Processor
+            </p>
+            </p>
+            <h4>Components in Detail</h4>
+            <ol>
+                <li>
+                    <h4>Register</h4>
+                    <p>
+                    The processor consists of several regisotrs which are either 1-bit or 32-bit.
+                    Purpose of a 32-bit register is to store and manipulate 32 bits of binary information. 
+                    </p>
+                    <center><img src="./project 7 img/regBlock.png" width="400" height="250"></center>
+                    <img src="./project 7 img/1Reg.png" width="800" height="150">
+                    <img src="./project 7 img/32Reg.png" width="800" height="150">
+                    <p>
+                        Both registers update at each clock pulse. When the ‘ld’ bit is high, the input bit ‘d’ 
+                        is allowed to pass through to the output bit ‘Q’. If the ‘clr’ bit is high at any clock 
+                        pulse, the output will be low.
+                        The only difference is that the 32-bit register allows for 32-bit inputs, represented in decimal in this simulation. 
+                        In the 32-bit simulation, different input values are used to demonstrate the function of the register.
+                    </p>
+                </li>
+                <li>
+                    <h4>Program Counter (PC)</h4>
+                    <p>
+                        The program counter is a another key component in the processor. It is comprised of a 32-bit register,
+                        a 4-bit adder and a 2-to-1 multiplexer.
+                    </p>
+                    <p>
+                        The 32-bit register has 5 signals: input/(D), clk, enable input, reset input, output(Q). The register
+                        is basically a flip flop, it maintains the input value until it hits the +ve edge of a clcok, output challenges
+                        to whatever the input value is at that time. When enable becomes 1 for the 1st time, and data is 1, 
+                        output (Q) will be 1 as well. output will stay 1 even if the input changes until the reset signal is high, 
+                        where at this point output is going to change back to 0. This is what is called a +ve edge triggered register,
+                        only changes at +ve edge of the clock.
+                    </p>
+                    <center><img src="./project 7 img/PCReg.png" width="400" height="250"></center>
+                    <p>
+                        The 4-bit Adder has an input A and an input B that is equal to a vlaue of 4, an input of Cin, an output
+                        Cout and has an output S. This component simply takes the input bit ‘A’ and adds 4 bits to it at the output ‘B’.
+                    </p>
+                    <img src="./project 7 img/4Adder.png" width="800" height="100">
+                    <p>
+                        The 2-to-1 multiplexer has 3 inputs (w0, w1 and S), and 1 output. If S is 1, w0 will be selected and if S is 
+                        0, w1 will be selected. 
+                    </p>
+                    <img src="./project 7 img/2to1mux.png" width="800" height="150">
+                    <p>
+                        All thats left to do is to take the 3 above components and combine them together to get a program counter.
+                        The program counter has d which is input and a has constant value of 5 and q which is output. Clr - when 
+                        set to high, reset the output value/turns output to 0 and when low, output is unchanged. Clk - which is a 
+                        normal clock pulse. ld controls whether the output can pass through the 32-bit register component, if high 
+                        allows output to pass and  if low, does not allow output to pass through. And finally inc, whic is the 4-bit
+                        adder,  if high, then 4 bit adder is active and if low, the adder is off, and the input is sent to the output.
+                    </p>
+                    <img src="./project 7 img/PC.png" width="800" height="150">
+                </li>
+                <li>
+                    <h4>Arithmatic Logic Unit (ALU)</h4>
+                    <p>
+                        The 32-bit Arithmatic Logic Unit does all the operations in the processor. It is basically a multiplexer
+                        with an op_code that decides what operation to use. The ALU has an two 32-bit inputs A and B, a 3-bit input 
+                        input op_code and for outputs has a Carry, has a zero flag and a 32-bit result. The ALU can perform upto 6 
+                        different operations. 00 is AND when neg select is 0, 01 is OR when neg select is 0, 10 is add when neg select is 0,
+                        10 is sub when neg select is 1, 00 is shift left when neg select 1 (shift left multiplies by 2 in logic), 
+                        finally 01 is shift right when neg select 1.
+                    </p>
+                    <p>
+                        Since the ALU is is 32-bit, we will also be needing a 32-bit adder which can be made using multiple 1-bit adders.
+                        32 bit adder needs 2 16 bit adders, 16 bit adder needs 4 4 bit adders, 4 bit adder needs 4 1 bit adders,
+                        and the 1 bit adder just needs its own code. 
+                    </p>
+                    <img src="./project 7 img/ALUSim.png" width="800" height="150">
+                    <p>
+                        In the simulation above, we set input A=7 and input B=6 and perform operations on them based on the speific op code. 
+                        000 converts 6 and 7 to binary and perofrms AND operation where then the result comes out in decimal. 001 converts 6 
+                        and 7 to binary and perofrms OR operation where then the result comes out in decimal. 010 converts 6 and 7 to binary 
+                        and perofrms the addition operation where then the result comes out in decimal. 011 copies the B input to the output.
+                        100 converts 7 to binary(0111) and perofrms Shift Left operation(1110) where then the result comes out in decimal(14).
+                        101 converts 7 to binary(0111) and perofrms Shift Left operation(0011) where then the result comes out in decimal(3).
+                        110 converts 6 and 7 to binary and perofrms the subtraction operation where then the result comes out in decimal.
+                        111 copies the A input to the output.
+                    </p>
+                </li>
+            </ol>
+            <br>
+            <p>Thank You</p>
+            <br>
+        </section>
+
+        <footer class="main-footer">
+            <div class="container main-footer-container">
+                <h3 class="web-name">H.H.</h3>
+                <ul class="nav footer-nav">
+                    <li>
+                        <a href="https://github.com/1Hamza-Hashmi1" target="_blank">
+                            <img src="github-mark-white.png">
+                        </a>
+                    </li>
+                    <li>
+                        <a href="https://www.linkedin.com/in/1hamza-hashmi1/" target="_blank">
+                            <img src="LI-In-Bug.png">
+                        </a>
+                    </li>
+                </ul>
+            </div>
+            <div class="footer-bottom">
+                <p>Copyright &copy;Hamza Hashmi. All Rights Reserved</p>
+            </div>
+        </footer>
+    </body>
+</html>

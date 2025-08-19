@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Hamza Hashmi | Home</title>
+        <link rel="stylesheet" href="style.css">
+    </head>
+
+    <body>
+        <header class="main-header">
+            <nav class="nav main-nav">
+                <ul>
+                    <li><a href="index.html">HOME</a></li>
+                    <li><a href="blog.html">BLOG</a></li>
+                    <li><a href="about.html">ABOUT</a></li>
+                </ul>
+            </nav>
+        <h1 class="web-name web-name-large">Hamza Hashmi</h1>
+        
+        </header>
+
+        <section class="content-section container">
+            <h2 class="section-header">Design of PID Controller</h2>
+            
+            <p>Greetings,</p>
+            <p>
+                I am Hamza Hashmi, and I am will be presenting an overview of one 
+                of my side projects - the design and implementation of a PID Controller.
+            </p>
+            <p>
+                -feedback systems used to control robotic joints, used where a lot of repetitivness
+                -exploring the basic of control systems
+                -will be desinging controls for sopesticated 
+                
+                for open loop systems
+                -a control system can be discribed as being a box with an input and output
+                -if input is 100 km/h , output we want is 100 km/h, so the box/ gain of control
+                systems is 1
+                -the project will delve into ways of achiving that perfect value of 1
+                -if we dont get there, the diffrence is system error
+                -the box consists of 2 values, Kgain = gain of controlller and Gprocess = process gain
+                    -lets say Gp is 20, Kg is 1/20 is b/c we want value of 1
+                    -what can go wrong is uncertantiy, dont exactly know the values of the paramters
+                        -can be fixed using feedback control systems
+                    -another reason is b/c of distrubances, like the enivornments, like going up hill, speed changes
+                        -can be fixed using feedback control systems 
+                
+                for closed loop systems
+                -need to take into consideration is stabiltiy and how to improve its behavior
+                -box now has a sensor, is the feedback loop
+                -there is a reference, what we want
+                -but we work with electric signals, so I/P is actally a electric signal which will give error
+                -discrete signal
+                -have -ve feedback, compare refernce with O/P, if no correction error is 0
+                -if +ve feedback, then output would add to reference whcih will lead the system to be unstable
+                
+                -temp sensor - changes temp of physcial system into electrical signal
+                -compare that signal w/ eletrci equavalient of desired 
+                -error is called actuating error
+                -signal then sent to a controller 
+                -then sent to an actautor, make the desired action, inc or dec value
+                -IP is diff the OP
+                
+                -simplify system by looking at equaiv unit feedback system
+                    -take OP and measure directly with value that you would like to have
+                -it helps us to understand the concepts better
+                -we want to regulate temp to stay at a contstant value
+                -if IP changes we are talking about tracking
+                -will also take into consideration distrubances
+                
+                -we want system to be stable, meanign responsiv to our command 
+                -stable is when system overdamped
+                -an inbetween case is when roots right on img axis called marginally stable
+                -if it stables or is stable is what we want
+                -want roots to be on left hand of plane
+
+                -to find if system is stable or not, we dont want to put in random numbers and hope it works
+                bc it can cause dmg or can cots you a lot
+                -so we do a simulation useing simulink
+
+                LAB1
+                -using a spefic dynamic (vlaues if G1 and G2)
+                -organize the closed loop system with the speific dynamic, theres a controller and a closd loop
+                -IP a signal and observe it simulinks scope
+                -play around with diffrent numbers of gain
+                    -K = 4.7 system is marginally stable
+                -then using analytical ways (calulcations) to see if that k value is correction
+                    -using Routh
+                -then we ask, is stable, yes or no?
+                and how far away from becoming unstable - Gain margin
+                -Gm = Kcrit/Kop
+                    -if 1.07 then to close to unstability
+                    -if 10, safer value
+                
+                -then will look at performance
+                -how to track the signal
+                -how to make sure that the performance is good, heli catches up with trajectroy
+                -how to reject disturbances
+                -dont be desinging PIC controller
+            </p>
+            <br>
+            <p>Thank You</p>
+            <br>
+        </section>
+
+        <footer class="main-footer">
+            <div class="container main-footer-container">
+                <h3 class="web-name">H.H.</h3>
+                <ul class="nav footer-nav">
+                    <li>
+                        <a href="https://github.com/1Hamza-Hashmi1" target="_blank">
+                            <img src="github-mark-white.png">
+                        </a>
+                    </li>
+                    <li>
+                        <a href="https://www.linkedin.com/in/1hamza-hashmi1/" target="_blank">
+                            <img src="LI-In-Bug.png">
+                        </a>
+                    </li>
+                </ul>
+            </div>
+            <div class="footer-bottom">
+                <p>Copyright &copy;Hamza Hashmi. All Rights Reserved</p>
+            </div>
+        </footer>
+    </body>
+</html>

@@ -1,0 +1,241 @@
+/* Header + Button Formatting */
+
+@import url('https://fonts.googleapis.com/css2?family=Bona+Nova&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=WindSong&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Nothing+You+Could+Do&display=swap');
+
+* {                            /* generic everything selector */
+    font-family: Bona Nova;
+    color: #777;
+}
+
+html,body {
+    margin: 0;
+    padding: 0;
+}
+
+.nav ul {
+    margin: 0;
+}
+
+.nav li {
+    display: inline;
+}
+
+.nav a {
+    display: inline-block;
+    padding: .5em;
+    color: white;
+    text-decoration: none;
+}
+
+.main-nav {
+    text-align: center;
+    font-size: 1.1em;
+    font-weight: lighter;
+    border-bottom: 1px solid rgba(255, 255, 255, .3);
+}
+
+.main-nav li {
+    padding: 0 5%;
+}
+
+.nav a:hover{
+    background-color: rgba(255, 255, 255, .3);
+}
+
+.main-header {
+    background-image: url(./blade.jpg);
+    background-size: cover;
+    padding: 30px;
+}
+
+/* Web Name Formatting */
+
+.web-name {
+    text-align: center;
+    margin: 0;
+    font-size: 4em;
+    color: #88525d;
+    font-weight: normal;
+    font-family: WindSong;
+}
+
+.web-name-large {
+    font-size: 9em;
+}
+
+/* Text Formatting */
+
+.content-section {
+    margin: 1em;
+}
+
+.container {
+    max-width: 900px;
+    margin: 0 auto;
+    padding: 0 1.5em;
+}
+
+.section-header {
+    font-family: "Nothing You Could Do";
+    font-weight: normal;
+    color: #333;
+    text-align: center;
+    font-size: 2.5em;
+}
+
+.section-header-name {
+    font-weight: normal;
+    color: #333;
+    text-align: left;
+    font-size: 1.5em;
+}
+
+/* Footer Formatting */
+
+.main-footer {
+    background-color: #333;
+    color: white;
+    padding: .25em 0;
+}
+
+.main-footer-container {
+    display: flex;
+    align-items: center;
+
+}
+
+.main-footer-container ul {
+    flex-grow: 1;
+    text-align: right;
+}
+
+.footer-nav li {
+    padding: 0 .5em;
+}
+
+.footer-nav img {
+    width: 30px;
+    height: 30px;
+}
+
+.footer-bottom {
+    color: black;
+    text-align: center;
+}
+
+.footer-bottom p {
+    color: white;
+}
+
+/* About Page Formatting */
+
+.about-image {
+    float: left;
+    height: 200px;
+    width: 200px;
+    margin: 15px;
+    border-radius: 50%;
+}
+
+.contact-info {
+    text-align: center;
+    margin-top: 10px;
+    margin-bottom: 20px;
+}
+
+/* Home Page Formatting */
+
+.btn {
+    text-align: center;
+    vertical-align: middle;
+    padding: .67em .67em;
+    cursor: pointer;
+}
+
+.projects {
+    border-bottom: 1px solid black;
+    padding-bottom: 1em;
+    margin-bottom: 1em;
+}
+
+.projects:last-child {      /* removes line under last project */
+    border-bottom: none;
+}
+
+.projects-item {
+    display: inline-block;
+    padding-right: .5em;
+}
+
+.projects-date {
+    color: #555;
+    font-weight: bold;
+    width: 28%;
+}
+
+.projects-number {
+    width: 29%;
+}
+
+.projects-name {
+    width: 30%;
+}
+
+.projects-btn {
+    max-width: 19%;
+}
+
+.btn-primary {
+    color: white;
+    background-color: #333;
+    border: none;
+    border-radius: .3em;
+    font: bold;
+}
+
+.btn-primary:hover {
+    background-color:#88525d;
+}
+
+/* Blog Page Formatting */
+
+.blog-item {
+    margin: 30px;
+}
+
+.blog-item-image {
+    height: 250px;
+}
+
+.blog-item-detail {
+    display: flex;
+    align-items: center;
+    padding: 5px;
+}
+
+.blog-item-spec {
+    flex-grow: 1;
+    color: #333;
+}
+
+.blog-items {       /*all the items (not just 1 specific 1*/
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+}
+
+/* Patch Page Formating */
+
+.patch-image {
+    height: 100%;
+    width: 99%;
+}
+
+.image-credit {
+    font-style: italic;
+    color: #777;
+    margin-top: 5px;
+    font-size: 0.8em;
+}
